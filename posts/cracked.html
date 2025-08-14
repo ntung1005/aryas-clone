@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>aryas</title>
+
+    <link
+      rel="stylesheet"
+      href="./../aryas_files/aryas-post-detail-style.css"
+    />
+
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1><a class="name" href="./../index.html">aryas</a></h1>
+        <div id="internet-beat">@450.24</div>
+      </div>
+
+      <script>
+        function updateBeatTime() {
+          const now = new Date();
+          const utc =
+            now.getUTCHours() * 3600 +
+            now.getUTCMinutes() * 60 +
+            now.getUTCSeconds() +
+            now.getUTCMilliseconds() / 1000;
+
+          const beatFloat = ((utc + 3600) % 86400) / 86.4;
+          const beat = Math.floor(beatFloat);
+          const sub = Math.floor((beatFloat - beat) * 100);
+
+          document.getElementById("internet-beat").textContent =
+            "@" +
+            beat.toString().padStart(3, "0") +
+            "." +
+            sub.toString().padStart(2, "0");
+        }
+
+        updateBeatTime();
+        setInterval(updateBeatTime, 864); // update every 0.864 sec (~1 centibeat)
+      </script>
+
+      <div class="subtext">
+        <a href="https://x.com/aryvyo" target="_blank">x dot com</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/aryvyo" target="_blank">github</a>
+      </div>
+
+      <h1>what it means to be ‘cracked’</h1>
+
+      <div class="post-content">
+        <br />
+        I’m by no means cracked, very very far from it, I am mediocre at best as
+        a swe, and an idiot hanging onto a thread in ML<br />
+        <br />
+        <br />
+        But I think being ‘cracked’ isn’t an achievable goal, and it’s not meant
+        to be, but only if you look at it right.<br />
+        <br />
+        A lot of people only chase it to be accepted by peers, which i can
+        understand, but that’s not the way to go about it.<br />
+        <br />
+        <br />
+        Being cracked is a hoax psyop meme, literally just do what you love
+        everyday and you’ll be ‘cracked’, it’s not hard at all, it’s not a
+        secret club<br />
+        <br />
+        <br />
+        I don’t like the stigma around it nowadays, or hell even being called
+        it, I’d hate to be someone’s inspiration to pursue the field and in turn
+        ruin their perception of what cracked means. I am by no means even
+        deserving of the place i find myself on socials, I just got lucky<br />
+        <br />
+        <br />
+        But hey why listen to a guy who thinks he’s a fraud LOOOL<br />
+        <br />
+        <br />
+      </div>
+    </div>
+  </body>
+</html>

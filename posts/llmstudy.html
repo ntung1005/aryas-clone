@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>aryas</title>
+
+    <link
+      rel="stylesheet"
+      href="./../aryas_files/aryas-post-detail-style.css"
+    />
+
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1><a class="name" href="./../index.html">aryas</a></h1>
+        <div id="internet-beat">@449.40</div>
+      </div>
+
+      <script>
+        function updateBeatTime() {
+          const now = new Date();
+          const utc =
+            now.getUTCHours() * 3600 +
+            now.getUTCMinutes() * 60 +
+            now.getUTCSeconds() +
+            now.getUTCMilliseconds() / 1000;
+
+          const beatFloat = ((utc + 3600) % 86400) / 86.4;
+          const beat = Math.floor(beatFloat);
+          const sub = Math.floor((beatFloat - beat) * 100);
+
+          document.getElementById("internet-beat").textContent =
+            "@" +
+            beat.toString().padStart(3, "0") +
+            "." +
+            sub.toString().padStart(2, "0");
+        }
+
+        updateBeatTime();
+        setInterval(updateBeatTime, 864); // update every 0.864 sec (~1 centibeat)
+      </script>
+
+      <div class="subtext">
+        <a href="https://x.com/aryvyo" target="_blank">x dot com</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/aryvyo" target="_blank">github</a>
+      </div>
+
+      <h1>you're probably not learning with ai</h1>
+
+      <div class="post-content">
+        <br />
+        To preface this: if you are someone who writes much of the same code
+        everyday, or someone who is incredibly experienced in the field (from
+        the mutuals I have on twitter/x, I can think of maybe one or two), then
+        this article probably isn't about you, but feel free to read
+        regardless!<br />
+        <br />
+        <br />
+        Let me set the stage: You are new to some concept, so you go to learn
+        more about it by making a toy project, and to aide in this, you enlist
+        the help of the mystical oracles we call llms.<br />
+        <br />
+        You might be prompting this model in a chat window, maybe in your
+        terminal, maybe some other third method I didn't think of while writing
+        this. As you move towards building this toy project to learn, you
+        constantly turn to the model for help, be it advice, or using it as a
+        search engine for documentation. The output seems fine, and you move on
+        all the less aware of the fact that you've slowly been fed the wrong
+        information, or perhaps you have to deal with a dozen small syntax
+        failures from the model, or just downright wrong code, but you just use
+        the llm to fix it, that's what it's there for!<br />
+        <br />
+        But you came into this project to learn, to actually get down in the
+        mines and gain some knowledge. Yet you've slowly been offloading all of
+        the process of learning to an llm, probably without being aware, or
+        thinking you're not entirely doing it. The issue here is that for you to
+        truly be able to learn these concepts and tools, you need to be able to
+        internalize the flow of thought that goes into it. It's easy to read 20
+        lines of code and think "hmm yes I will remember this and apply it next
+        time I reach a problem of this shape." But the issue is that you didn't
+        actually think about what the shape of that problem is, you didn't even
+        play with it in your head or on paper to actually understand it's
+        contours, you might not even remember the code after 20 minutes.<br />
+        <br />
+        The most important part of learning anything is the ability to
+        internalize concepts and build a mental model, and I don't think llms
+        are particularly good at helping you with this (at least without
+        prompting them so much that you end up spending more time than if you
+        just studied it yourself.) In the current software climate, the big
+        names all preach to "ship! ship! ship!", and this leads young people to
+        construct a delusional path to success (either rushing towards vc funded
+        b2b SaaS or to get ready for a job), and through this they start using
+        llms to their advantage (and why wouldn't they?) to catch up to these
+        slop-peddlers, not that there's much catching up to do to most of these
+        people xD. I dislike seeing people led into this hole, it ends up
+        hurting them almost every time, and when it doesn't, it ends up wasting
+        so much of their time. <br />
+        <br />
+        I have fallen victim to this many times, it's an easy mistake to make,
+        especially with new concepts, as you can probably extract some signal
+        from the high level components of the concept, but as you dig deeper,
+        you begin piecing together a puzzle with parts that aren't even from the
+        same box. And while it's not the end of the world, it is really
+        annoying, it might cost you a few hours now to go back and fix those
+        holes in your mental model, but the real concern here is what if these
+        holes weren't fixed now? What if you continued with these incorrect
+        solutions and ended up using them in some critical code? While unlikely,
+        it is something you should be on the lookout for.<br />
+        <br />
+        I don't mean to scare you off of using llms, they are wonderful things
+        and can be the most useful tools. The only real practical takeaway here
+        is to stay aware of the balance of your llm usage and actual conscious
+        studying, it really pays to become familiar with your tools, even if it
+        means you have to spend more time gaining that familiarity. <br />
+        <br />
+        For the time being, these machines cant entirely replace your job, even
+        as they get more intelligent and capable, you will still need to provide
+        some support at some level of complexity to ensure you're writing good
+        code.<br />
+        <br />
+        If you think I am entirely wrong here, or perhaps I'm missing something,
+        please message me on X @ aryvyo :)<br />
+        <br />
+        <br />
+      </div>
+    </div>
+  </body>
+</html>

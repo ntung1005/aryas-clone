@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>aryas</title>
+
+    <link
+      rel="stylesheet"
+      href="./../aryas_files/aryas-post-detail-style.css"
+    />
+
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1><a class="name" href="./../index.html">aryas</a></h1>
+        <div id="internet-beat">@449.87</div>
+      </div>
+
+      <script>
+        function updateBeatTime() {
+          const now = new Date();
+          const utc =
+            now.getUTCHours() * 3600 +
+            now.getUTCMinutes() * 60 +
+            now.getUTCSeconds() +
+            now.getUTCMilliseconds() / 1000;
+
+          const beatFloat = ((utc + 3600) % 86400) / 86.4;
+          const beat = Math.floor(beatFloat);
+          const sub = Math.floor((beatFloat - beat) * 100);
+
+          document.getElementById("internet-beat").textContent =
+            "@" +
+            beat.toString().padStart(3, "0") +
+            "." +
+            sub.toString().padStart(2, "0");
+        }
+
+        updateBeatTime();
+        setInterval(updateBeatTime, 864); // update every 0.864 sec (~1 centibeat)
+      </script>
+
+      <div class="subtext">
+        <a href="https://x.com/aryvyo" target="_blank">x dot com</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/aryvyo" target="_blank">github</a>
+      </div>
+
+      <h1>Zagros!</h1>
+
+      <div class="post-content">
+        Over the past few weeks I have been working on Zagros, a server built in
+        zig, as a fun learning/side project. This is my first 'big' project in
+        zig since I wrote zigClipboard, and while it probably isn't amazing
+        code, it was a fun experience to help deepen my knowledge of zig!<br />
+        <br />
+        <br />
+        Initially, the idea was for me to start a [REDACTED] for a small
+        community, disconnected from my name and thrown on a $5 vps I'd pay for
+        with XMR, and this made me think, I can use this opportunity to write my
+        own server and (hopefully) squeeze some extra performance out of it
+        (that I wouldn't ever need on the scale I was planning to use it for)<br />
+        <br />
+        <br />
+        The core of the server is very basic reading and writing requests, and
+        this took like... 20 minutes to write? I think. Server was running on a
+        single thread, dealing with requests one-at-a-time (this was the version
+        I ran the
+        <a href="https://x.com/Aryvyo/status/1871963666016538978">experiment</a>
+        with, if you remember...)<br />
+        <br />
+        <br />
+        After this I began writing my favorite part of the project, the thread
+        pool, which is very simply just a worker-job queue, I think this was
+        also when I started using arena allocators more? I absolutely love arena
+        allocators, they made the worker handlers really easy to write since I
+        just didn't have to give a shit about what they did with the memory
+        after (though this is kind of a non-issue in zig with defer lmfao)<br />
+        <br />
+        <br />
+        Within my own usage of the server I went on a side tangent, adding
+        sqlite support and completing (most) of the functionality I needed,
+        which was 100% js free and completely in zig (wahoo!). Performance was
+        really good in the limited testing I did, but I am yet to deploy the
+        application due to not having yet planned the complete flow of how I
+        wanna do certain things (im lazy)<br />
+        <br />
+        <br />
+        Over the time I spent writing this , I improved my understanding of zig
+        as a language, and I think the things I truly 'learnt' were how to
+        properly use mutexes (simple but I didn't know, sorry!!!!!) and how to
+        structure a project like this.<br />
+        <br />
+        In the end I had multiple different things being ran from just main.zig
+        (thread pool, static file watcher, cache etc), and while they may seem
+        rudimentary, figuring out how to best interconnect these different parts
+        in a non-dumbass way was quite fun! (Though there is a chance I did
+        indeed lay them out in the dumbass way...)<br />
+        <br />
+        <br />
+        There are probably more things I learnt from this but I can't recall
+        them rn<br />
+        <br />
+        <br />
+        This is probably a simple or stupid project for most, and I probably
+        didn't do it in the best way, but I enjoyed the time I spent writing the
+        code and I think I made a good program at the end of it :)<br />
+        <br />
+        <br />
+        There's still some stuff left to work on I think, which I'll do on
+        weekends or whenever I'm bored. The codebase is also littered with odd
+        comments from me, I don't think i self-censored them or anything so what
+        you see is what I was thinking at the time lol<br />
+      </div>
+    </div>
+  </body>
+</html>

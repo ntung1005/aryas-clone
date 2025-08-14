@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>aryas</title>
+
+    <link
+      rel="stylesheet"
+      href="./../aryas_files/aryas-post-detail-style.css"
+    />
+
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1><a class="name" href="./../index.html">aryas</a></h1>
+        <div id="internet-beat">@450.47</div>
+      </div>
+
+      <script>
+        function updateBeatTime() {
+          const now = new Date();
+          const utc =
+            now.getUTCHours() * 3600 +
+            now.getUTCMinutes() * 60 +
+            now.getUTCSeconds() +
+            now.getUTCMilliseconds() / 1000;
+
+          const beatFloat = ((utc + 3600) % 86400) / 86.4;
+          const beat = Math.floor(beatFloat);
+          const sub = Math.floor((beatFloat - beat) * 100);
+
+          document.getElementById("internet-beat").textContent =
+            "@" +
+            beat.toString().padStart(3, "0") +
+            "." +
+            sub.toString().padStart(2, "0");
+        }
+
+        updateBeatTime();
+        setInterval(updateBeatTime, 864); // update every 0.864 sec (~1 centibeat)
+      </script>
+
+      <div class="subtext">
+        <a href="https://x.com/aryvyo" target="_blank">x dot com</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/aryvyo" target="_blank">github</a>
+      </div>
+
+      <h1>Reinforcement learning</h1>
+
+      <div class="post-content">
+        <br />
+        One of the most important parts of reinforcement learning is the reward
+        function, which is pretty obvious, how else would we feed the lil robot
+        treats for winning?<br />
+        <br />
+        <br />
+        Anyway, in working with css AI I realized 2 things,<br />
+        <br />
+        1) i'm an idiot<br />
+        <br />
+        2) the gymnasium library really makes RL look easy!!<br />
+        <br />
+        <br />
+        I mean, if the game already had a wrapper for it, i'd be living
+        wonderfully, unfortunately, it doesn’t!<br />
+        <br />
+        <br />
+        How do you even define a reward for css surf?? Obviously we want to go
+        fast, and go fast in the forward direction, but what about when we turn
+        to go sideways? And after all of that, how do we let the agent know what
+        path ISN’T a drop to its death without just giving it the path to go?<br />
+        <br />
+        <br />
+        While an experienced engineer would probably recognize all of these
+        issues quickly and work to fix them, I'm an idiot!<br />
+        <br />
+        <br />
+        I began by simply feeding the position and angle of the player into the
+        model, while this worked kind of when my reward function only wanted it
+        to move fast, I recognized as i moved on that I should probably<br />
+        <br />
+        1) read info directly from memory, instead of from a console log<br />
+        <br />
+        2) Give it eyes!<br />
+        <br />
+        I mean what kind of ‘observation’ is it if the poor guy can’t even
+        see??<br />
+        <br />
+        <br />
+        So i need to embed both transform data and a screenshot at each
+        observation in one tensor, then act on that, probably easy to do
+        right?<br />
+        <br />
+        <br />
+        It was pretty easy to add this, just needed to move some stuff around,
+        now the model consists of conv2d layers for processing the image, which
+        is just a 512x512 screenshot in greyscale, and some linears for the
+        positional data, which is just 6 items (xyz pos/angle).<br />
+        <br />
+        <br />
+        This, along with a revamped reward function seemed to improve the model,
+        and the time-to-first-surf was lowered. I also reworked how I grabbed
+        the positional data, and made a sourcemod plugin to allow me to grab all
+        the info at any moment using rcon, which proved to be very reliable.<br />
+        <br />
+        <br />
+        Another thing is that i'm using an epsilon-greedy agent to train this
+        model, but perhaps some other agent architecture would be more suitable,
+        I’ll look into it if i return to this project.<br />
+        <br />
+        <br />
+        Things i learnt from this:<br />
+        <br />
+        RL is more about determining a good reward function than anything<br />
+        It can be slow and painful<br />
+        Starting the model with some supervised learning is FINE, especially
+        when you need to teach it some crucial mechanics. Obviously for a
+        situation like this,it's not as critical, however if we look at
+        something like a self-driving car, you wouldn’t want to risk this kind
+        of stuff.<br />
+        <br />
+        This was a fun experiment, and I will probably return to it one day,
+        however I think my current perspective isn’t correct to solve this
+        problem, which is fine.<br />
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- saved from url=(0018)https://aryas.dev/ -->
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>aryas</title>
+    <link rel="stylesheet" href="./aryas_files/style.css" />
+    <link rel="icon" href="https://aryas.dev/frieren.png" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>aryas</h1>
+
+        <div class="beatAndMusic">
+          <div id="internet-beat">@439.15</div>
+
+          <div class="now-playing-box" id="now-playing-box">
+            <div class="info">
+              <div class="label">now listening</div>
+              <div class="title">Final Fall</div>
+              <div class="artist">Jukio Kallio</div>
+            </div>
+            <img
+              class="cover"
+              src="./aryas_files/0b5908cb87fe61f74b5b2bf364715643.jpg"
+              alt="album cover"
+            />
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function updateBeatTime() {
+          const now = new Date();
+          const utc =
+            now.getUTCHours() * 3600 +
+            now.getUTCMinutes() * 60 +
+            now.getUTCSeconds() +
+            now.getUTCMilliseconds() / 1000;
+
+          const beatFloat = ((utc + 3600) % 86400) / 86.4;
+          const beat = Math.floor(beatFloat);
+          const sub = Math.floor((beatFloat - beat) * 100);
+
+          document.getElementById("internet-beat").textContent =
+            "@" +
+            beat.toString().padStart(3, "0") +
+            "." +
+            sub.toString().padStart(2, "0");
+        }
+
+        updateBeatTime();
+        setInterval(updateBeatTime, 864); // update every 0.864 sec (~1 centibeat)
+      </script>
+
+      <div class="subtext">
+        <a href="https://x.com/aryvyo" target="_blank">x dot com</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/aryvyo" target="_blank">github</a>
+      </div>
+
+      I'm Aryas, hailing from [~~~~~~~~~]
+      <br /><br />
+      Software engineer, aspiring ML researcher, video game enjoyer and general
+      jack of all trades (master of some, more to come)
+      <br /><br />
+      I take great joy in spending time on the computer, wish to understand more
+      and more of what occurs on it.
+
+      <div class="gif-row">
+        <img src="./aryas_files/nixos2.gif" alt="Powered by NixOS :3" />
+        <img src="./aryas_files/vim.gif" alt="Written in vim" />
+        <img src="./aryas_files/zig.png" alt="Written in Zig" />
+      </div>
+
+      <h2 class="glow">Posts</h2>
+
+      <ul class="posts">
+        <li class="post">
+          <a href="./posts/llmstudy.html"
+            >you're probably not learning with ai</a
+          >
+          <small class="muted">01-08-2025</small>
+        </li>
+
+        <li class="post">
+          <a href="./posts/zagros.html">Zagros!</a>
+          <small class="muted">08-02-2025</small>
+        </li>
+
+        <li class="post">
+          <a href="./posts/absorbing.html">Absorbing information</a>
+          <small class="muted">02-01-2025</small>
+        </li>
+
+        <li class="post">
+          <a href="./posts/cracked.html">what it means to be ‘cracked’</a>
+          <small class="muted">02-09-2024</small>
+        </li>
+
+        <li class="post">
+          <a href="./posts/zigclip.html">zigClipboard</a>
+          <small class="muted">10-07-2024</small>
+        </li>
+
+        <li class="post">
+          <a href="./posts/cssrl.html">Reinforcement learning</a>
+          <small class="muted">29-06-2024</small>
+        </li>
+      </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem; font-size: 0.9rem">
+      Built with
+      <a href="https://github.com/Aryvyo/Zagros/" target="_blank">Zagros</a> in
+      Zig
+    </div>
+  </body>
+</html>

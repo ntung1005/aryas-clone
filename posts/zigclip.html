@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>aryas</title>
+
+    <link
+      rel="stylesheet"
+      href="./../aryas_files/aryas-post-detail-style.css"
+    />
+
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1><a class="name" href="./../index.html">aryas</a></h1>
+        <div id="internet-beat">@450.34</div>
+      </div>
+
+      <script>
+        function updateBeatTime() {
+          const now = new Date();
+          const utc =
+            now.getUTCHours() * 3600 +
+            now.getUTCMinutes() * 60 +
+            now.getUTCSeconds() +
+            now.getUTCMilliseconds() / 1000;
+
+          const beatFloat = ((utc + 3600) % 86400) / 86.4;
+          const beat = Math.floor(beatFloat);
+          const sub = Math.floor((beatFloat - beat) * 100);
+
+          document.getElementById("internet-beat").textContent =
+            "@" +
+            beat.toString().padStart(3, "0") +
+            "." +
+            sub.toString().padStart(2, "0");
+        }
+
+        updateBeatTime();
+        setInterval(updateBeatTime, 864); // update every 0.864 sec (~1 centibeat)
+      </script>
+
+      <div class="subtext">
+        <a href="https://x.com/aryvyo" target="_blank">x dot com</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/aryvyo" target="_blank">github</a>
+      </div>
+
+      <h1>zigClipboard</h1>
+
+      <div class="post-content">
+        Released
+        <a href="https://github.com/Aryvyo/zigClipboard">zigClipboard</a>
+        today<br />
+        <br />
+        <br />
+        This was the first thing I ever wrote in Zig, and it was quite a fun
+        learning experience!<br />
+        <br />
+        At first I was on an older nixpkgs channel so I was using zig 0.12.0, so
+        I had basically 0 completions from the LSP LOL!<br />
+        <br />
+        <br />
+        After I fixed that tho it was pretty smooth sailing.<br />
+        <br />
+        <br />
+        Learning about how the X server handles selections was super cool, I
+        even went on a side tangent studying about Unix domain sockets, though I
+        didn’t end up using them.<br />
+        <br />
+        I wanted to have some way to track the items in my clipboard, but I
+        didn’t really wanna disrupt the flow I’d gotten used to with linux,
+        where if I close an app, I lose my clipboard, though it's probably more
+        QoL than anything, I didn’t want to mess with that.<br />
+        <br />
+        <br />
+        Also had to learn about UI rendering, dipped a bit into OpenGL, though I
+        didn’t do as much as I wanted, I might do smth related to graphics
+        next.<br />
+        <br />
+        <br />
+        Hope anyone who uses it enjoys it &gt;.&lt;<br />
+        <br />
+        <br />
+      </div>
+    </div>
+  </body>
+</html>

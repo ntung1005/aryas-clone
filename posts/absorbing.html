@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>aryas</title>
+
+    <link
+      rel="stylesheet"
+      href="./../aryas_files/aryas-post-detail-style.css"
+    />
+
+    <link rel="icon" href="data:," />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1><a class="name" href="./../index.html">aryas</a></h1>
+        <div id="internet-beat">@450.12</div>
+      </div>
+
+      <script>
+        function updateBeatTime() {
+          const now = new Date();
+          const utc =
+            now.getUTCHours() * 3600 +
+            now.getUTCMinutes() * 60 +
+            now.getUTCSeconds() +
+            now.getUTCMilliseconds() / 1000;
+
+          const beatFloat = ((utc + 3600) % 86400) / 86.4;
+          const beat = Math.floor(beatFloat);
+          const sub = Math.floor((beatFloat - beat) * 100);
+
+          document.getElementById("internet-beat").textContent =
+            "@" +
+            beat.toString().padStart(3, "0") +
+            "." +
+            sub.toString().padStart(2, "0");
+        }
+
+        updateBeatTime();
+        setInterval(updateBeatTime, 864); // update every 0.864 sec (~1 centibeat)
+      </script>
+
+      <div class="subtext">
+        <a href="https://x.com/aryvyo" target="_blank">x dot com</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/aryvyo" target="_blank">github</a>
+      </div>
+
+      <h1>Absorbing information</h1>
+
+      <div class="post-content">
+        <br />
+        Recently I’ve been trying to improve both how I absorb information and
+        when to do so.<br />
+        <br />
+        This has honestly been on my mind for a while, ever since I was lurking
+        on tpot, before ever posting. I used to read yacine’s blog quite often
+        (before the purge), and ofc gwern , and a variety of substacks. However
+        I didn’t act on the thought up until about a month(?) ago, when I reread
+        all the posts on Ludwig’s bearblog. I ended up sitting there for an hour
+        or two just rereading every post over and over and trying to extract as
+        much wisdom as I could from them, how I could apply this to my work and
+        life in general.<br />
+        <br />
+        <br />
+        This led me to spend a few days going over articles I respected and
+        trying to figure out some kind of mental model to process them and
+        benefit from the reading. It’s quite hard to put into words but the best
+        I could describe it as is kind of like a dynamically generated
+        structured output based on what the topic was, how it related to my work
+        etc etc, this seemed to work pretty well, as now I can usually read over
+        an article and see the lesson/point in it and apply that to myself or
+        note it down for when needed.<br />
+        <br />
+        <br />
+        This might seem like a stupid thing to consider, but for me it felt kind
+        of necessary to look back on something I considered so natural and just
+        approach it from different angles to see what works best. It’s
+        incredibly easy to think you’re really benefiting from all this reading
+        but could you really quantify how much you actually took away from that
+        reading? I think complacency is the root of all downfalls, even in
+        something as mundane as this, and I can definitely attest to benefiting
+        from this review.<br />
+        <br />
+        <br />
+        The lesson from this post? That’s for you to parse!<br />
+        <br />
+        <br />
+      </div>
+    </div>
+  </body>
+</html>
